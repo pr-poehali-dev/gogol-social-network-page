@@ -148,7 +148,7 @@ const Index = () => {
         </Card>
 
         <Tabs defaultValue="biography" className="space-y-6" onValueChange={setActiveSection}>
-          <TabsList className="grid w-full grid-cols-7 bg-[#FFFBF5] border-2 border-[#C5A572] h-auto p-1">
+          <TabsList className="grid w-full grid-cols-6 bg-[#FFFBF5] border-2 border-[#C5A572] h-auto p-1">
             <TabsTrigger 
               value="biography" 
               className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
@@ -190,13 +190,6 @@ const Index = () => {
             >
               <Icon name="Image" className="w-4 h-4 mr-2" />
               Галерея
-            </TabsTrigger>
-            <TabsTrigger 
-              value="music" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
-            >
-              <Icon name="Music" className="w-4 h-4 mr-2" />
-              Музыка
             </TabsTrigger>
           </TabsList>
 
@@ -367,17 +360,7 @@ const Index = () => {
             </Dialog>
           </TabsContent>
 
-          <TabsContent value="music" className="animate-fade-in">
-            <Card className="bg-[#FFFBF5] border-[#C5A572] border-2">
-              <CardContent className="p-8 text-center space-y-4">
-                <Icon name="Music" className="w-16 h-16 text-[#8B7355] mx-auto opacity-50" />
-                <p className="text-[#8B7355] text-lg">
-                  Раздел находится в разработке. Здесь будут представлены музыкальные произведения, 
-                  вдохновлённые творчеством писателя.
-                </p>
-              </CardContent>
-            </Card>
-          </TabsContent>
+
         </Tabs>
       </div>
 
