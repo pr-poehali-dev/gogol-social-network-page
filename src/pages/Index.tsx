@@ -4,10 +4,12 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('biography');
+  const [selectedImage, setSelectedImage] = useState<{ title: string; description: string; imageUrl: string } | null>(null);
 
   const friends = [
     { name: 'А.С. Пушкин', status: 'Поэт', years: '1799-1837' },
@@ -23,6 +25,39 @@ const Index = () => {
     { title: 'Тарас Бульба', year: '1835', genre: 'Повесть' },
     { title: 'Шинель', year: '1842', genre: 'Повесть' },
     { title: 'Нос', year: '1836', genre: 'Повесть' },
+  ];
+
+  const galleryItems = [
+    {
+      title: 'Мёртвые души',
+      description: 'Чичиков и его авантюра с мёртвыми душами. Карета путешествует по просторам России.',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/491fbf97-619c-4438-9d34-0f83ef070975.jpg'
+    },
+    {
+      title: 'Ревизор',
+      description: 'Комедия о мнимом ревизоре и чиновничьих пороках. «Чему смеётесь? Над собой смеётесь!»',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/9fde522f-c37d-4730-b4f1-4e0b52ddde0b.jpg'
+    },
+    {
+      title: 'Вий',
+      description: 'Мистическая повесть о философе Хоме Бруте и его страшных ночных бдениях.',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/d20b1bd9-5037-42ff-ba17-62ec9e7e3c69.jpg'
+    },
+    {
+      title: 'Тарас Бульба',
+      description: 'Эпическая повесть о казацкой вольнице, отцовской любви и трагической судьбе.',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/8a5833f9-28a3-48ba-9d74-90a1e3d572bf.jpg'
+    },
+    {
+      title: 'Шинель',
+      description: 'История маленького человека Акакия Акакиевича и его мечты о новой шинели.',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/f011059a-8560-4acd-98d1-0e6ea0ce4c8a.jpg'
+    },
+    {
+      title: 'Нос',
+      description: 'Абсурдистская повесть о майоре Ковалёве и его сбежавшем носе.',
+      imageUrl: 'https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/aeec4306-0406-4412-ab64-a97b358e9b0d.jpg'
+    },
   ];
 
   const quotes = [
@@ -282,15 +317,54 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="gallery" className="animate-fade-in">
-            <Card className="bg-[#FFFBF5] border-[#C5A572] border-2">
-              <CardContent className="p-8 text-center space-y-4">
-                <Icon name="Image" className="w-16 h-16 text-[#8B7355] mx-auto opacity-50" />
-                <p className="text-[#8B7355] text-lg">
-                  Раздел находится в разработке. Здесь будут размещены иллюстрации к произведениям, 
-                  портреты и виды эпохи.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {galleryItems.map((item, index) => (
+                <Card 
+                  key={index}
+                  className="bg-[#FFFBF5] border-[#C5A572] border-2 overflow-hidden hover:shadow-2xl transition-all hover-scale cursor-pointer group"
+                  onClick={() => setSelectedImage(item)}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={item.imageUrl} 
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C1810]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="text-lg font-bold text-[#2C1810] mb-2">{item.title}</h3>
+                    <p className="text-sm text-[#8B7355] line-clamp-2">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+              <DialogContent className="max-w-4xl bg-[#FFFBF5] border-[#C5A572] border-2">
+                {selectedImage && (
+                  <>
+                    <DialogHeader>
+                      <DialogTitle className="text-3xl text-[#2C1810] font-bold">
+                        {selectedImage.title}
+                      </DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <div className="relative aspect-video overflow-hidden rounded-md border-2 border-[#C5A572]">
+                        <img 
+                          src={selectedImage.imageUrl} 
+                          alt={selectedImage.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p className="text-[#2C1810] leading-relaxed text-lg">
+                        {selectedImage.description}
+                      </p>
+                    </div>
+                  </>
+                )}
+              </DialogContent>
+            </Dialog>
           </TabsContent>
 
           <TabsContent value="music" className="animate-fade-in">
