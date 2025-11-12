@@ -86,21 +86,22 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F5EFE0] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
            style={{
-             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
            }}
       />
 
       <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
-        <Card className="mb-8 bg-[#FFFBF5] border-[#C5A572] border-2 shadow-xl">
+        <Card className="mb-8 bg-card/50 backdrop-blur-xl border-primary/20 shadow-2xl shadow-primary/5">
           <CardContent className="p-8">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex flex-col items-center space-y-4">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-br from-[#D4AF37] to-[#8B7355] rounded-full blur-sm" />
-                  <Avatar className="w-40 h-40 border-4 border-[#D4AF37] relative">
+                  <div className="absolute -inset-1 bg-gradient-to-br from-primary via-accent to-secondary rounded-full blur-md animate-pulse" />
+                  <Avatar className="w-40 h-40 border-4 border-primary relative ring-4 ring-primary/20">
                     <AvatarImage 
                       src="https://cdn.poehali.dev/projects/8abeb452-62e9-4187-89d0-e6eb793a0123/files/fb48e0d4-ea9d-4981-9b52-7cee52a95de5.jpg" 
                       alt="Н.В. Гоголь" 
@@ -109,7 +110,7 @@ const Index = () => {
                   </Avatar>
                 </div>
                 <div className="text-center space-y-2">
-                  <Badge variant="secondary" className="bg-[#D4AF37] text-[#2C1810] hover:bg-[#C5A572] font-medium">
+                  <Badge variant="secondary" className="bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 font-semibold shadow-lg">
                     <Icon name="Feather" className="w-3 h-3 mr-1" />
                     Писатель
                   </Badge>
@@ -119,28 +120,28 @@ const Index = () => {
 
               <div className="flex-1 space-y-4">
                 <div>
-                  <h1 className="text-5xl font-bold text-[#2C1810] mb-2">Николай Васильевич Гоголь</h1>
-                  <p className="text-xl text-[#8B7355] italic">«Живописец русской жизни»</p>
+                  <h1 className="text-5xl font-black text-foreground mb-2 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Николай Васильевич Гоголь</h1>
+                  <p className="text-xl text-muted-foreground italic">«Живописец русской жизни»</p>
                 </div>
 
                 <div className="flex flex-wrap gap-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <Icon name="Calendar" className="w-4 h-4 text-[#8B7355]" />
+                    <Icon name="Calendar" className="w-4 h-4 text-primary" />
                     <span>20 марта 1809 – 21 февраля 1852</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Icon name="MapPin" className="w-4 h-4 text-[#8B7355]" />
+                    <Icon name="MapPin" className="w-4 h-4 text-secondary" />
                     <span>Москва, Российская Империя</span>
                   </div>
                 </div>
 
-                <Separator className="bg-[#C5A572]" />
+                <Separator className="bg-gradient-to-r from-primary via-accent to-secondary h-0.5" />
 
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="border-[#8B7355] text-[#2C1810]">Драматург</Badge>
-                  <Badge variant="outline" className="border-[#8B7355] text-[#2C1810]">Прозаик</Badge>
-                  <Badge variant="outline" className="border-[#8B7355] text-[#2C1810]">Критик</Badge>
-                  <Badge variant="outline" className="border-[#8B7355] text-[#2C1810]">Публицист</Badge>
+                  <Badge variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">Драматург</Badge>
+                  <Badge variant="outline" className="border-accent/50 text-accent hover:bg-accent/10">Прозаик</Badge>
+                  <Badge variant="outline" className="border-secondary/50 text-secondary hover:bg-secondary/10">Критик</Badge>
+                  <Badge variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">Публицист</Badge>
                 </div>
               </div>
             </div>
@@ -148,45 +149,45 @@ const Index = () => {
         </Card>
 
         <Tabs defaultValue="biography" className="space-y-6" onValueChange={setActiveSection}>
-          <TabsList className="grid w-full grid-cols-6 bg-[#FFFBF5] border-2 border-[#C5A572] h-auto p-1">
+          <TabsList className="grid w-full grid-cols-6 bg-card/50 backdrop-blur-xl border border-primary/20 h-auto p-2 rounded-2xl">
             <TabsTrigger 
               value="biography" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="BookOpen" className="w-4 h-4 mr-2" />
               Биография
             </TabsTrigger>
             <TabsTrigger 
               value="friends" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="Users" className="w-4 h-4 mr-2" />
               Друзья
             </TabsTrigger>
             <TabsTrigger 
               value="works" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="Library" className="w-4 h-4 mr-2" />
               Произведения
             </TabsTrigger>
             <TabsTrigger 
               value="quotes" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="Quote" className="w-4 h-4 mr-2" />
               Цитаты
             </TabsTrigger>
             <TabsTrigger 
               value="posts" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="FileText" className="w-4 h-4 mr-2" />
               Публикации
             </TabsTrigger>
             <TabsTrigger 
               value="gallery" 
-              className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#2C1810] text-sm py-3"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white text-sm py-3 rounded-xl transition-all duration-300"
             >
               <Icon name="Image" className="w-4 h-4 mr-2" />
               Галерея
@@ -194,11 +195,11 @@ const Index = () => {
           </TabsList>
 
           <TabsContent value="biography" className="space-y-4 animate-fade-in">
-            <Card className="bg-[#FFFBF5] border-[#C5A572] border-2">
+            <Card className="bg-card/50 backdrop-blur-xl border border-primary/20">
               <CardHeader>
-                <CardTitle className="text-3xl text-[#2C1810]">О жизни и творчестве</CardTitle>
+                <CardTitle className="text-3xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">О жизни и творчестве</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4 text-[#2C1810] leading-relaxed">
+              <CardContent className="space-y-4 text-foreground leading-relaxed">
                 <p className="text-lg">
                   Родился в местечке Великие Сорочинцы Миргородского уезда Полтавской губернии 
                   в семье небогатого помещика. С детства проявлял интерес к литературе и театру.
@@ -225,17 +226,17 @@ const Index = () => {
               {friends.map((friend, index) => (
                 <Card 
                   key={index} 
-                  className="bg-[#FFFBF5] border-[#C5A572] border-2 hover:shadow-lg transition-all hover-scale cursor-pointer"
+                  className="bg-card/50 backdrop-blur-xl border border-primary/20 hover:shadow-2xl hover:shadow-primary/20 transition-all hover-scale cursor-pointer hover:border-primary/50"
                 >
                   <CardContent className="p-6 text-center space-y-3">
-                    <Avatar className="w-20 h-20 mx-auto border-2 border-[#D4AF37]">
-                      <AvatarFallback className="bg-[#D4AF37] text-[#2C1810] text-lg font-bold">
+                    <Avatar className="w-20 h-20 mx-auto border-2 border-primary ring-4 ring-primary/20">
+                      <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white text-lg font-bold">
                         {friend.name.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="font-bold text-[#2C1810]">{friend.name}</h3>
-                      <p className="text-sm text-[#8B7355]">{friend.status}</p>
+                      <h3 className="font-bold text-foreground">{friend.name}</h3>
+                      <p className="text-sm text-primary">{friend.status}</p>
                       <p className="text-xs text-muted-foreground mt-1">{friend.years}</p>
                     </div>
                   </CardContent>
@@ -249,20 +250,20 @@ const Index = () => {
               {works.map((work, index) => (
                 <Card 
                   key={index} 
-                  className="bg-[#FFFBF5] border-[#C5A572] border-2 hover:shadow-lg transition-all hover-scale cursor-pointer"
+                  className="bg-card/50 backdrop-blur-xl border border-primary/20 hover:shadow-2xl hover:shadow-primary/20 transition-all hover-scale cursor-pointer hover:border-primary/50"
                 >
                   <CardHeader>
-                    <CardTitle className="text-xl text-[#2C1810] flex items-start justify-between">
+                    <CardTitle className="text-xl text-foreground flex items-start justify-between font-bold">
                       <span className="flex-1">{work.title}</span>
-                      <Icon name="BookMarked" className="w-5 h-5 text-[#D4AF37] flex-shrink-0 ml-2" />
+                      <Icon name="BookMarked" className="w-5 h-5 text-primary flex-shrink-0 ml-2" />
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="flex justify-between items-center">
-                      <Badge className="bg-[#D4AF37] text-[#2C1810] hover:bg-[#C5A572]">
+                      <Badge className="bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90">
                         {work.genre}
                       </Badge>
-                      <span className="text-sm text-[#8B7355]">{work.year}</span>
+                      <span className="text-sm text-muted-foreground">{work.year}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -275,12 +276,12 @@ const Index = () => {
               {quotes.map((quote, index) => (
                 <Card 
                   key={index} 
-                  className="bg-[#FFFBF5] border-[#C5A572] border-2 hover:shadow-lg transition-all"
+                  className="bg-card/50 backdrop-blur-xl border border-accent/30 hover:shadow-2xl hover:shadow-accent/20 transition-all hover:border-accent/60"
                 >
                   <CardContent className="p-6">
                     <div className="relative">
-                      <Icon name="Quote" className="w-8 h-8 text-[#D4AF37] opacity-30 absolute -top-2 -left-2" />
-                      <p className="text-lg text-[#2C1810] italic relative z-10 pl-6">
+                      <Icon name="Quote" className="w-8 h-8 text-accent opacity-30 absolute -top-2 -left-2" />
+                      <p className="text-lg text-foreground italic relative z-10 pl-6">
                         {quote}
                       </p>
                     </div>
@@ -294,16 +295,16 @@ const Index = () => {
             {posts.map((post, index) => (
               <Card 
                 key={index} 
-                className="bg-[#FFFBF5] border-[#C5A572] border-2 hover:shadow-lg transition-all"
+                className="bg-card/50 backdrop-blur-xl border border-secondary/30 hover:shadow-2xl hover:shadow-secondary/20 transition-all hover:border-secondary/60"
               >
                 <CardHeader>
                   <div className="flex justify-between items-start">
-                    <CardTitle className="text-2xl text-[#2C1810]">{post.title}</CardTitle>
-                    <span className="text-sm text-[#8B7355] whitespace-nowrap ml-4">{post.date}</span>
+                    <CardTitle className="text-2xl text-foreground font-bold">{post.title}</CardTitle>
+                    <span className="text-sm text-secondary whitespace-nowrap ml-4">{post.date}</span>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[#2C1810] leading-relaxed">{post.text}</p>
+                  <p className="text-foreground leading-relaxed">{post.text}</p>
                 </CardContent>
               </Card>
             ))}
@@ -314,7 +315,7 @@ const Index = () => {
               {galleryItems.map((item, index) => (
                 <Card 
                   key={index}
-                  className="bg-[#FFFBF5] border-[#C5A572] border-2 overflow-hidden hover:shadow-2xl transition-all hover-scale cursor-pointer group"
+                  className="bg-card/50 backdrop-blur-xl border border-primary/30 overflow-hidden hover:shadow-2xl hover:shadow-primary/30 transition-all hover-scale cursor-pointer group hover:border-primary"
                   onClick={() => setSelectedImage(item)}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -323,34 +324,34 @@ const Index = () => {
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C1810]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <CardContent className="p-4">
-                    <h3 className="text-lg font-bold text-[#2C1810] mb-2">{item.title}</h3>
-                    <p className="text-sm text-[#8B7355] line-clamp-2">{item.description}</p>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
             <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-              <DialogContent className="max-w-4xl bg-[#FFFBF5] border-[#C5A572] border-2">
+              <DialogContent className="max-w-4xl bg-card/95 backdrop-blur-2xl border-2 border-primary/40">
                 {selectedImage && (
                   <>
                     <DialogHeader>
-                      <DialogTitle className="text-3xl text-[#2C1810] font-bold">
+                      <DialogTitle className="text-3xl font-black bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                         {selectedImage.title}
                       </DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
-                      <div className="relative aspect-video overflow-hidden rounded-md border-2 border-[#C5A572]">
+                      <div className="relative aspect-video overflow-hidden rounded-2xl border-2 border-primary/40 shadow-2xl shadow-primary/20">
                         <img 
                           src={selectedImage.imageUrl} 
                           alt={selectedImage.title}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <p className="text-[#2C1810] leading-relaxed text-lg">
+                      <p className="text-foreground leading-relaxed text-lg">
                         {selectedImage.description}
                       </p>
                     </div>
@@ -364,9 +365,14 @@ const Index = () => {
         </Tabs>
       </div>
 
-      <footer className="bg-[#FFFBF5] border-t-2 border-[#C5A572] mt-12 py-6">
-        <div className="container mx-auto px-4 text-center text-[#8B7355]">
-          <p className="text-sm">
+      <footer className="bg-card/30 backdrop-blur-xl border-t border-primary/20 mt-12 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <Icon name="Feather" className="w-5 h-5 text-primary" />
+            <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          </div>
+          <p className="text-sm text-muted-foreground">
             © 1842 · Литературная сеть · Российская Империя
           </p>
         </div>
